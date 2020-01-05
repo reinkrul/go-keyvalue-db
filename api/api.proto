@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package api;
+
+service KeyValueDatabase {
+    rpc Set(SetValueRequest) returns (SetValueResponse) {}
+    rpc Get(GetValueRequest) returns (GetValueResponse) {}
+}
+
+message SetValueRequest {
+    string bucket = 1;
+    string key = 2;
+    string value = 3;
+}
+
+message SetValueResponse {
+    // Empty for now
+}
+
+message GetValueRequest {
+    string bucket = 1;
+    string key = 2;
+}
+
+message GetValueResponse {
+    string value = 1;
+}
